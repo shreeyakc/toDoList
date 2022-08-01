@@ -32,12 +32,15 @@ class ToDoTableViewController: UITableViewController {
       return [swift, dog]
     }
 
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return toDos.count
     }
 
-    
+    //hello
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
@@ -54,6 +57,10 @@ class ToDoTableViewController: UITableViewController {
         return cell
     }
 
-   
+    override func prepare(for segue : UIStoryboardSegue, sender : Any?){
+        if let addVC = segue.destination as? AddToDoViewController {
+            addVC.previousVC = self
+        }
+    }
 
 }
